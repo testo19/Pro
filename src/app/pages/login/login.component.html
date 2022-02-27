@@ -1,0 +1,43 @@
+<div class="row">
+    <div class="col-lg-8 mx-auto" >
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title">LOGIN</h5>
+            </div>
+            <div class="card-body">
+                <form [formGroup]="MemberUsername">
+                <div class="row">
+                    <label > Username</label>
+                    <input formControlName="Username" class="from-control" type="text" >
+                </div>
+                <div class="row">
+                    <label > Password</label>
+                    <input formControlName="Password" class="from-control" type="password" >
+                </div>
+                <div class="row">
+                    <button (click)="Login()">LOGIN</button>
+                </div>
+                
+
+            </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- <div class="col-12">
+    <div class="row">
+        <label > Username</label>
+        <input class="from-control" type="text" >
+    </div>
+    <div class="row">
+        <label > Password</label>
+        <input class="from-control" type="password" >
+    </div>
+</div> -->
+
+
+
+
+<!-- <p>login works!</p>
+<button (click)="Login()">LOGIN</button> -->

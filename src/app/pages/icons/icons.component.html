@@ -1,0 +1,285 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="card demo-icons">
+      <div class="card-header">
+        <h5 class="card-title">การรักษา</h5>
+        <p class="card-category">
+          <!-- <thead class=" text-primary">
+            <td> ฟัน (Ma) </td>
+               <tr></tr>    
+               <td> 00 </td> <td> ทั้งหมด </td> 
+               <tr></tr>  
+               <td> 01 </td> <td> บน(Ach) </td>   
+               <tr></tr>    
+               <td> 02 </td> <td> ล่าง(Ach) </td> 
+               <tr></tr>
+               
+               <td> ฟันแท้(Ma)</td> <td> 1  ...13 12 11 | 2  21 22 23...   </td>  <td>บน</td> 
+               <tr></tr>
+               <td>  </td> <td> 4  ...43 42 41 | 3  31 32 33...  </td>  <td>ล่าง</td> 
+               <tr></tr>
+               <td> ฟันน้ำนม(Ma)</td> <td> 5  ...53 52 51  |  6  61 62 63...  </td>  <td>บน</td> 
+               <tr></tr>
+               <td>  </td> <td> 8  ...83 82 81  |  7  71 72 73... </td>  <td>ล่าง</td> 
+               <tr></tr>
+               
+              </thead> -->
+        </p>
+      </div>
+      <div class="card-body ">
+        
+        <table class="table table-light">
+          <thead class="thead-light">
+            <tr>
+              <th > ชื่อ - นามสกุล</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th class="ml-2" >{{firstname}} {{lastname}}</th>
+            </tr>
+          </tbody>
+        </table>
+
+          <table class="table table-bordered" >
+
+           <thead>
+             <tr>
+               <th>Ta</th>
+               <th>เรื่อง</th>
+             </tr>
+           </thead>
+            <tbody>
+              <tr>
+                <td> <input type="checkbox" [formControl]="TunTaTooth" (change)="onChangeTunTaTooth()">0 ตรวจฟัน</td>
+                <td> <input [disabled]="TunTaTooth.invalid" type="checkbox" [(ngModel)]="TunTaToothList2" (change)="onClickListTuntaTooth(2)" >02 ตรวจฟันนัดทำต่อ</td>
+
+              </tr>
+
+            <tr>
+              <td class="del-line-head"> <input type="checkbox" [formControl]="TunTaHappy"  (change)="onChangeTunTaHappy()">1 ทันตสุขศึกษา</td>
+              <td> <input type="checkbox" [disabled]="TunTaHappy.invalid"  [(ngModel)]="TunTaHappyList12" (change)="onClickListTunTaHappy(12)">12 เรื่องหินปูน,แผ่นคราบฟัน,การแปรงฟัน ฯลฯ</td>
+
+            </tr>
+            <tr>
+              <td class="del-line"></td>
+              <td><input  type="checkbox" [disabled]="TunTaHappy.invalid"  [(ngModel)]="TunTaHappyList13" (change)="onClickListTunTaHappy(13)">13 การจัดฟัน</td>
+            </tr>
+            <tr>
+              <td class="del-line"></td>
+              <td><input  type="checkbox" [disabled]="TunTaHappy.invalid"  [(ngModel)]="TunTaHappyList14" (change)="onClickListTunTaHappy(14)" >14 การรักษาโรคปริทันต์</td>
+            </tr>
+            <tr>
+              <td class="del-line"></td>
+              <td><input  type="checkbox" [disabled]="TunTaHappy.invalid"  [(ngModel)]="TunTaHappyList15" (change)="onClickListTunTaHappy(15)" >15 การอุดฟัน</td>
+            </tr>
+            <tr>
+              <td class="del-line"></td>
+              <td><input  type="checkbox" [disabled]="TunTaHappy.invalid"  [(ngModel)]="TunTaHappyList16" (change)="onClickListTunTaHappy(16)" >16 การรักษาคลองรากฟัน</td>
+            </tr>
+            <tr>
+              <td class="del-line"></td>
+              <td><input  type="checkbox" [disabled]="TunTaHappy.invalid"  [(ngModel)]="TunTaHappyList17" (change)="onClickListTunTaHappy(17)" >17 การถอนฟัน/ศัลยกรรมช่องปาก</td>
+            </tr>
+            <tr>
+              <td class="del-line"></td>
+              <td><input  type="checkbox" [disabled]="TunTaHappy.invalid"  [(ngModel)]="TunTaHappyList18" (change)="onClickListTunTaHappy(18)" >18 การใส่ฟันติดแน่น</td>
+            </tr>
+            <tr>
+              <td class="del-line"></td>
+              <td><input  type="checkbox" [disabled]="TunTaHappy.invalid"  [(ngModel)]="TunTaHappyList19" (change)="onClickListTunTaHappy(19)" >19 การใส่ฟันถิดได้</td>
+            </tr>
+
+            <tr>         
+              <td class="del-line-head"> <input type="checkbox" [formControl]="TunTaClearTooth"  (change)="onChangeTunTaClearTooth()" >2 ทำความสะอาดฟัน ,ขูดหินปูน ,ขัดฟัน</td>
+              <td> <input type="checkbox" [disabled]="TunTaClearTooth.invalid"  [(ngModel)]="TunTaClearToothList23" (change)="onClickListTunTaClearTooth(23)" >23 ขูดหินปูน</td>
+            </tr>
+            <tr>
+              <td class="del-line"></td>
+              <td><input  type="checkbox" [disabled]="TunTaClearTooth.invalid"  [(ngModel)]="TunTaClearToothList25" (change)="onClickListTunTaClearTooth(25)" >25 Sealant,เคลือบฟลูออไรด์</td>
+            </tr>
+            <tr>
+              <td class="del-line"></td>
+              <td><input  type="checkbox" [disabled]="TunTaClearTooth.invalid"  [(ngModel)]="TunTaClearToothList26" (change)="onClickListTunTaClearTooth(26)" >26 แก้เสียวฟัน,บรรเทาเจ็บปวด</td>
+            </tr>
+
+            <tr>         
+              <td class="del-line-head"> <input type="checkbox" [formControl]="TunTaPeriodontalTooth"  (change)="onChangeTunTaPeriodontalTooth()" >4 รักษาโรคปริทันต์ </td>
+              <td> <input type="checkbox" [disabled]="TunTaPeriodontalTooth.invalid"  [(ngModel)]="TunTaPeriodontalToothList41" (change)="onClickListTunTaPeriodontalTooth(41)" >41 Monitor & Follow Up</td>
+            </tr>
+            <tr>
+              <td class="del-line"></td>
+              <td><input  type="checkbox" [disabled]="TunTaPeriodontalTooth.invalid"  [(ngModel)]="TunTaPeriodontalToothList42" (change)="onClickListTunTaPeriodontalTooth(42)" >42 Re-contour(ตกแต่ง contour ใหม่)</td>
+            </tr>
+            <tr>
+              <td class="del-line"></td>
+              <td><input  type="checkbox" [disabled]="TunTaPeriodontalTooth.invalid"  [(ngModel)]="TunTaPeriodontalToothList44" (change)="onClickListTunTaPeriodontalTooth(44)" >44 Root cleaning(Planing) เกลาราก</td>
+            </tr>
+            <tr>
+              <td class="del-line"></td>
+              <td><input  type="checkbox" [disabled]="TunTaPeriodontalTooth.invalid"  [(ngModel)]="TunTaPeriodontalToothList45" (change)="onClickListTunTaPeriodontalTooth(45)" >45 Curettage ขูดเหงือก</td>
+            </tr>
+            <tr>
+              <td class="del-line"></td>
+              <td><input  type="checkbox" [disabled]="TunTaPeriodontalTooth.invalid"  [(ngModel)]="TunTaPeriodontalToothList46" (change)="onClickListTunTaPeriodontalTooth(46)" >46 Applied med. (ใส่ยาที่เหงือก)</td>
+            </tr>
+
+            <tr>         
+              <td class="del-line-head"> <input type="checkbox" [formControl]="TunTaClearRenovate"  (change)="onChangeTunTaClearRenovate()" >5 บูรณะฟัน (อุดฟัน)</td>
+              <td> <input type="checkbox" [disabled]="TunTaClearRenovate.invalid"  [(ngModel)]="TunTaClearRenovateList53" (change)="onClickListTunTaClearRenovate(53)" >53 อุดฟันผุตื้นๆ</td>
+            </tr>
+            <tr>
+              <td class="del-line"></td>
+              <td><input  type="checkbox" [disabled]="TunTaClearRenovate.invalid"  [(ngModel)]="TunTaClearRenovateList54" (change)="onClickListTunTaClearRenovate(54)" >54 อุดฟันผุลึก</td>
+            </tr>
+            <tr>
+              <td class="del-line"></td>
+              <td><input  type="checkbox" [disabled]="TunTaClearRenovate.invalid"  [(ngModel)]="TunTaClearRenovateList55" (change)="onClickListTunTaClearRenovate(55)" >  55 อุดฟัน 2 caries/ Broken filling</td>
+            </tr>
+
+            <tr>         
+              <td class="del-line-head"> <input type="checkbox" [formControl]="TunTaHealRootTooth"  (change)="onChangeTunTaHealRootTooth()" >6 รักษาคลองรากฟันและโพรงประสาทฟัน</td>
+              <td> <input type="checkbox" [disabled]="TunTaHealRootTooth.invalid"  [(ngModel)]="TunTaHealRootToothList64" (change)="onClickListTunTaHealRootTooth(64)" >64 Capping(ใส่วัสดุ Capping)</td>
+            </tr>
+            <tr>
+              <td class="del-line"></td>
+              <td><input  type="checkbox" [disabled]="TunTaHealRootTooth.invalid"  [(ngModel)]="TunTaHealRootToothList65" (change)="onClickListTunTaHealRootTooth(65)" >65 Pulpotomy(รักษา Pulp) ในฟันเด็ก</td>
+            </tr>
+            <tr>
+              <td class="del-line"></td>
+              <td><input  type="checkbox" [disabled]="TunTaHealRootTooth.invalid"  [(ngModel)]="TunTaHealRootToothList66" (change)="onClickListTunTaHealRootTooth(66)" >66 RCT/ Pulpectomy</td>
+            </tr>
+            <tr>
+              <td class="del-line"></td>
+              <td><input  type="checkbox" [disabled]="TunTaHealRootTooth.invalid"  [(ngModel)]="TunTaHealRootToothList67" (change)="onClickListTunTaHealRootTooth(67)" >67  อุดชั่วคราว</td>
+            </tr>
+
+            <tr>         
+              <td class="del-line-head"> <input type="checkbox" [formControl]="TunTaOralSurgeryTooth"  (change)="onChangeTunTaOralSurgeryTooth()" >7 ถอนฟันและศัลยกรรมช่องปาก</td>
+              <td> <input type="checkbox" [disabled]="TunTaOralSurgeryTooth.invalid"  [(ngModel)]="TunTaOralSurgeryToothList73" (change)="onClickListTunTaOralSurgeryTooth(73)" >73 รักษาแผล เอาวัตถุแปลกปลอมออก + ตัดไหม</td>
+            </tr>
+            <tr>
+              <td class="del-line"></td>
+              <td><input  type="checkbox" [disabled]="TunTaOralSurgeryTooth.invalid"  [(ngModel)]="TunTaOralSurgeryToothList75" (change)="onClickListTunTaOralSurgeryTooth(75)" > 75 ถอนฟัน</td>
+            </tr>
+            <tr>
+              <td class="del-line"></td>
+              <td><input  type="checkbox" [disabled]="TunTaOralSurgeryTooth.invalid"  [(ngModel)]="TunTaOralSurgeryToothList76" (change)="onClickListTunTaOralSurgeryTooth(76)" >76 ผ่าฝี,ผ่า impact,ศัลยกรรมช่องปากอื่นๆ,ตัดปลายราก </td>
+            </tr>
+            <tr>
+              <td class="del-line"></td>
+              <td><input  type="checkbox" [disabled]="TunTaOralSurgeryTooth.invalid"  [(ngModel)]="TunTaOralSurgeryToothList77" (change)="onClickListTunTaOralSurgeryTooth(77)" >77  ให้ยาก่อนและหลังผ่าตัด, ให้ยาบรรเทาปวด</td>
+            </tr>
+              
+            <tr>         
+              <td class="del-line-head"> <input type="checkbox" [formControl]="TunTaPutToothFirmly"  (change)="onChangeTunTaPutToothFirmly()" >8 ใส่ติดฟันแน่น</td>
+              <td> <input type="checkbox" [disabled]="TunTaPutToothFirmly.invalid"  [(ngModel)]="TunTaPutToothFirmlyList86" (change)="onClickListTunTaPutToothFirmly(86)" >86 Crown  </td>
+            </tr>
+            <tr>
+              <td class="del-line"></td>
+              <td><input  type="checkbox" [disabled]="TunTaPutToothFirmly.invalid"  [(ngModel)]="TunTaPutToothFirmlyList87" (change)="onClickListTunTaPutToothFirmly(87)" >87 Pin tooth</td>
+            </tr>
+            <tr>
+              <td class="del-line"></td>
+              <td><input  type="checkbox" [disabled]="TunTaPutToothFirmly.invalid"  [(ngModel)]="TunTaPutToothFirmlyList88" (change)="onClickListTunTaPutToothFirmly(88)" >88 Bridge </td>
+            </tr>
+
+            <tr>         
+              <td class="del-line-head"> <input type="checkbox" [formControl]="TunTaPartialTooth"  (change)="onChangeTunTaPartialTooth()" >9 ใส่ติดฟันถอดได้</td>
+              <td> <input type="checkbox" [disabled]="TunTaPartialTooth.invalid"  [(ngModel)]="TunTaPartialToothList93" (change)="onClickListTunTaPartialTooth(93)" >93 Partial - TP  </td>
+            </tr>
+            <tr>
+              <td class="del-line"></td>
+              <td><input  type="checkbox" [disabled]="TunTaPartialTooth.invalid"  [(ngModel)]="TunTaPartialToothList94" (change)="onClickListTunTaPartialTooth(94)" >95 PD,RPD,RB</td>
+            </tr>
+            <tr>
+              <td class="del-line"></td>
+              <td><input  type="checkbox" [disabled]="TunTaPartialTooth.invalid"  [(ngModel)]="TunTaPartialToothList95" (change)="onClickListTunTaPartialTooth(95)" >95 FD </td>
+            </tr>
+            <tr>
+              <td class="del-line"></td>
+              <td><input  type="checkbox" [disabled]="TunTaPartialTooth.invalid"  [(ngModel)]="TunTaPartialToothList96" (change)="onClickListTunTaPartialTooth(96)" >96 FD with attachment </td>
+            </tr>
+      
+            </tbody>
+          </table>
+      </div>
+
+        
+          <div class="card-body">
+            <p>Side Side</p>
+            <table class="table table-bordered ">
+              <thead>
+                <tr> 
+                  <th> <input  type="checkbox" [formControl]="TunTaSideTooth1"  (change)="onChangeTunTaSideTooth1()" >1 Side</th>
+                  <th> <input  type="checkbox" [formControl]="TunTaSideTooth2"  (change)="onChangeTunTaSideTooth2()" >2 Side</th>
+                  <th> <input  type="checkbox" [formControl]="TunTaSideTooth3"  (change)="onChangeTunTaSideTooth3()" >3 Side</th>
+                  <th> <input  type="checkbox" [formControl]="TunTaSideTooth4"  (change)="onChangeTunTaSideTooth4()" >4 Side</th>
+                  <th> <input  type="checkbox" [formControl]="TunTaSideTooth5"  (change)="onChangeTunTaSideTooth5()" >5 Side</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><input  type="checkbox" [disabled]="TunTaSideTooth1.invalid"  [(ngModel)]="TunTaSideTooth1List11" (change)="onClickListTunTaSideTooth1(11)" >11 O</td>
+                  <td><input  type="checkbox" [disabled]="TunTaSideTooth2.invalid"  [(ngModel)]="TunTaSideTooth2List21" (change)="onClickListTunTaSideTooth2(21)" >21 OM</td>
+                  <td><input  type="checkbox" [disabled]="TunTaSideTooth3.invalid"  [(ngModel)]="TunTaSideTooth3List31" (change)="onClickListTunTaSideTooth3(31)" >31 OMD</td>
+                  <td><input  type="checkbox" [disabled]="TunTaSideTooth4.invalid"  [(ngModel)]="TunTaSideTooth4List41" (change)="onClickListTunTaSideTooth4(41)" >41 OMDV</td>
+                  <td><input  type="checkbox" [disabled]="TunTaSideTooth5.invalid"  [(ngModel)]="TunTaSideTooth5List51" (change)="onClickListTunTaSideTooth5(51)" >51 OMDVL</td>
+                </tr>
+                <tr>
+                  <td><input  type="checkbox" [disabled]="TunTaSideTooth1.invalid"  [(ngModel)]="TunTaSideTooth1List12" (change)="onClickListTunTaSideTooth1(12)" >12 M</td>
+                  <td><input  type="checkbox" [disabled]="TunTaSideTooth2.invalid"  [(ngModel)]="TunTaSideTooth2List22" (change)="onClickListTunTaSideTooth2(22)" >22 OD</td>
+                  <td><input  type="checkbox" [disabled]="TunTaSideTooth3.invalid"  [(ngModel)]="TunTaSideTooth3List32" (change)="onClickListTunTaSideTooth3(32)" >32 OMV</td>
+                  <td><input  type="checkbox" [disabled]="TunTaSideTooth4.invalid"  [(ngModel)]="TunTaSideTooth4List42" (change)="onClickListTunTaSideTooth4(42)" >42 OMDL</td>
+                  <td><input  type="checkbox" [disabled]="TunTaSideTooth5.invalid"  [(ngModel)]="TunTaSideTooth5List52" (change)="onClickListTunTaSideTooth5(52)" >52 OMDVLG</td>
+                </tr>
+                <tr>
+                  <td><input  type="checkbox" [disabled]="TunTaSideTooth1.invalid"  [(ngModel)]="TunTaSideTooth1List13" (change)="onClickListTunTaSideTooth1(13)" >13 D</td>
+                  <td><input  type="checkbox" [disabled]="TunTaSideTooth2.invalid"  [(ngModel)]="TunTaSideTooth2List23" (change)="onClickListTunTaSideTooth2(23)" >23 OB</td>
+                  <td><input  type="checkbox" [disabled]="TunTaSideTooth3.invalid"  [(ngModel)]="TunTaSideTooth3List33" (change)="onClickListTunTaSideTooth3(33)" >33 OML</td>
+                  <td><input  type="checkbox" [disabled]="TunTaSideTooth4.invalid"  [(ngModel)]="TunTaSideTooth4List43" (change)="onClickListTunTaSideTooth4(43)" >43 OMBL</td>
+                  <td><input  type="checkbox" [disabled]="TunTaSideTooth5.invalid"  [(ngModel)]="TunTaSideTooth5List53" (change)="onClickListTunTaSideTooth5(53)" >53 OMDVLGP</td>
+                </tr>
+                <tr>
+                  <td><input  type="checkbox" [disabled]="TunTaSideTooth1.invalid"  [(ngModel)]="TunTaSideTooth1List14" (change)="onClickListTunTaSideTooth1(14)" >14 B</td>
+                  <td><input  type="checkbox" [disabled]="TunTaSideTooth2.invalid"  [(ngModel)]="TunTaSideTooth2List24" (change)="onClickListTunTaSideTooth2(24)" >24 OL</td>
+                  <td><input  type="checkbox" [disabled]="TunTaSideTooth3.invalid"  [(ngModel)]="TunTaSideTooth3List34" (change)="onClickListTunTaSideTooth3(34)" >34 ODV</td>
+                  <td><input  type="checkbox" [disabled]="TunTaSideTooth4.invalid"  [(ngModel)]="TunTaSideTooth4List44" (change)="onClickListTunTaSideTooth4(44)" >44 ODVL</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td><input  type="checkbox" [disabled]="TunTaSideTooth1.invalid"  [(ngModel)]="TunTaSideTooth1List15" (change)="onClickListTunTaSideTooth1(15)" >15 L</td>
+                  <td><input  type="checkbox" [disabled]="TunTaSideTooth2.invalid"  [(ngModel)]="TunTaSideTooth2List25" (change)="onClickListTunTaSideTooth2(25)" >25 MD</td>
+                  <td><input  type="checkbox" [disabled]="TunTaSideTooth3.invalid"  [(ngModel)]="TunTaSideTooth3List35" (change)="onClickListTunTaSideTooth3(35)" >35 ODL</td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td><input  type="checkbox" [disabled]="TunTaSideTooth1.invalid"  [(ngModel)]="TunTaSideTooth1List16" (change)="onClickListTunTaSideTooth1(16)" >16 G(V)</td>
+                  <td></td>
+                  <td><input  type="checkbox" [disabled]="TunTaSideTooth3.invalid"  [(ngModel)]="TunTaSideTooth3List36" (change)="onClickListTunTaSideTooth3(36)" >36 OVL</td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td><input  type="checkbox" [disabled]="TunTaSideTooth1.invalid"  [(ngModel)]="TunTaSideTooth1List17" (change)="onClickListTunTaSideTooth1(17)" >17 G(L)</td>
+                  <td></td>
+                  <td><input  type="checkbox" [disabled]="TunTaSideTooth3.invalid"  [(ngModel)]="TunTaSideTooth3List37" (change)="onClickListTunTaSideTooth3(37)" >37 IMD</td>
+                  <td></td>
+                  <td></td>
+                </tr>
+              </tbody>
+
+            </table>
+
+          </div>
+          <div class="col-lg-12">
+          <div class="ml-auto mr-auto">
+            <button type="submit" (click)="OnClickSubmit();"  class="btn btn-success btn-block" > ยืนยัน </button>
+          </div>
+        </div>
+
+    </div>
+    
+  </div>
+</div>

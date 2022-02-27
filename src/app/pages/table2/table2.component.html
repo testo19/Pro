@@ -1,0 +1,162 @@
+<div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title"> รายชื่อคนไข้</h4>
+          <input type="search" class="form-control" [formControl]="inputFilter" (keyup)="filter();">
+        </div>
+        
+      
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table">
+              <thead class=" text-primary">
+                <th class="text-center">
+                  ลำดับ
+                </th>
+                <th class="text-center">
+                  ชื่อ
+                </th>
+                <th class="text-center">
+                  นามสกุล
+                </th>
+                <th class="text-center">
+                  จัดการข้อมูล
+                </th>
+                <th class="text-center">
+                  ลบข้อมูล
+                </th>
+                
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of dataShow ;let i=index;" class="table-row1">
+                  
+                    <td class="text-center">{{i+1}}</td>
+                    <td class="text-center">{{item.firstname}}</td>
+                    <td class="text-center">{{item.lastname}}</td>
+                    <td class="text-center">
+                      <button class="btn  btn-sm button2 " (click)="open(Userdata,item);" >ข้อมูล</button>
+                      <button class="ml-2 btn  btn-sm button3" (click)="Link1(item);">รักษา</button>
+                      <button class="ml-2 btn btn-light btn-sm button4" (click)="Link2(item);">ประวัติการรักษา</button>
+                    </td>
+                    <td class="text-center"> <i class="bi bi-trash bin"(click)="Delete(item);" ></i></td>
+
+  
+                </tr>
+              
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+  
+  <ng-template #Userdata let-modal>
+   
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Profile</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form  [formGroup]="User">
+          
+        <div class="row">
+          <div class="col-md-6 pr-1">
+            <div class="form-group">
+              <label>ชื่อ</label>
+              <input type="text" disabled  formControlName="FirstName" class="form-control"  placeholder="ชื่อ" value=""  >
+            </div>
+          </div>
+          <div class="col-md-6 pl-1">
+            <div class="form-group">
+              <label>นามสกุล</label>
+              <input type="text" disabled  formControlName="LastName" class="form-control" placeholder="นามสกุล" value="">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 pr-1">
+            <div class="form-group">
+              <label>เพศ</label>
+              <input type="text" disabled  formControlName="Gender" class="form-control"  placeholder="เพศ" value=""  >
+            </div>
+          </div>
+          <div class="col-md-6 pl-1">
+            <div class="form-group">
+              <label>เบอร์โทร</label>
+              <input type="text" disabled  formControlName="Phonenumber" class="form-control" placeholder="เบอร์โทร" value="">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label>ที่อยู่</label>
+              <input type="text" disabled  formControlName="Address" class="form-control" placeholder="ที่อยู่" value="">
+            </div>
+          </div>
+        </div>
+  
+        <div class="row">
+          <div class="col-md-6 pr-1">
+            <div class="form-group">
+              <label>วันเกิด</label>
+              <input (change)="Agedateday()" type="date" disabled  formControlName="Birthday" class="form-control"  value="">
+            </div>
+          </div>
+          <div class="col-md-6 pl-1">
+            <div class="form-group">
+              <label>อายุ</label>
+              <p class="formControlName mt-2 ml-2"> {{Age.value}}</p> 
+            </div>
+          </div>
+        </div>
+  
+        <div class="row">
+          <div class="col-md-6 pr-1">
+            <div class="form-group">
+              <label>โรคประจำตัว</label>
+              <input type="text" disabled  formControlName="Disease" class="form-control" placeholder="โรคประจำตัว" value="">
+            </div>
+          </div>
+          <div class="col-md-6 pl-1">
+            <div class="form-group">
+              <label>แพ้ยา</label>
+              <input type="text" disabled  formControlName="DrugAllergy" class="form-control" placeholder="แพ้ยา " value="">
+            </div>
+          </div>
+        </div>
+       
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label>ข้อมูลเพิ่มเติม</label>
+              <textarea disabled  formControlName="Annotation"  class="form-control textarea"></textarea>
+            </div>
+          </div>
+        </div>
+      </form>
+
+
+
+    </div>
+
+    <div class="modal-footer">
+      <button class="btn btn-primary " (click)="toggleEdit();" >แก้ไข</button>
+      <button type="button" class="btn btn-success" (click)="modal.close('Save click'); onSaveEdit();">บันทึก</button>
+      
+    </div>
+    
+  </ng-template>
+  
+
+    <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+    
+
+  
+  
+   

@@ -1,0 +1,12 @@
+table tbody input{
+    margin-right: 10px;
+}
+table thead input{
+    margin-right: 10px;
+}
+.del-line-head{
+    border-bottom: none;
+}
+.del-line{
+    border: none;
+}

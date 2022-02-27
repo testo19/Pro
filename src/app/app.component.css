@@ -1,0 +1,7 @@
+.table-row1{
+    transition: all ease 0.25s;
+}
+.table-row1:hover{
+    background-color: lightgray;
+    transition: all ease 0.25s;
+}

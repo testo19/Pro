@@ -1,0 +1,29 @@
+.table-row1{
+    transition: all ease 0.25s;
+}
+.table-row1:hover{
+    background-color: lightgray;
+    transition: all ease 0.25s;
+}
+.bin {
+    color: red;
+    cursor: pointer;
+    font-size: large;
+    transition: ease all 0.5s;
+  }
+  .bin:hover {
+    opacity: 50%;
+    cursor: pointer;
+    transition: ease all 0.5s;
+    
+  }
+.button2{
+    background-color: rgba(65, 105, 225, 0.796);
+}  
+.button3{
+    background-color: yellowgreen;
+}
+
+.button4{
+    background-color: tomato;
+}

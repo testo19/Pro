@@ -1,0 +1,236 @@
+<p>members works!</p>
+<div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title"> รายชื่อสมาชิก</h4>
+          <button class="btn btn-success" (click)="open(MemberModal);"> เพิ่มสมาชิก </button>
+        </div>
+        
+      
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table">
+              <thead class=" text-primary">
+                <th class="text-center">
+                  ลำดับ
+                </th>
+                <th class="text-center">
+                  ชื่อ
+                </th>
+                <th class="text-center">
+                  นามสกุล
+                </th>
+                <th class="text-center">
+                  username
+                </th>
+                <th class="text-center">
+                  password
+                </th>
+                <th class="text-center">
+                  รหัสพนักงาน
+                </th>
+                <th class="text-center">
+                  ตำแหน่ง
+                </th>
+                <th class="text-center">
+                  แก้ไข
+                </th>
+                <th class="text-center">
+                  ลบข้อมูล
+                </th>
+                
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of dataShow ;let i=index;" class="table-row1">
+                  
+                    <td class="text-center">{{i+1}}</td>
+                    <td class="text-center">{{item.firstname}}</td>
+                    <td class="text-center">{{item.lastname}}</td>
+                    <td class="text-center">{{item.username}}</td>
+                    <td class="text-center">{{item.password}}</td>
+                    <td class="text-center">{{item.code}}</td>
+                    <td class="text-center">{{item.statusmember}}</td>
+                    <!-- <td class="text-center">
+                      <button class="btn btn-primary btn-sm button2 " (click)="open(Userdata,item);" >ข้อมูล</button>
+                      <button class="ml-2 btn btn-warning btn-sm button3" (click)="Link1(item);">รักษา</button>
+                      <button class="ml-2 btn btn-light btn-sm" (click)="Link2(item);">ประวัติการรักษา</button>
+                    </td> -->
+                    <td class="text-center"> <button type="button" class="ml-2 btn btn-warning btn-sm button2" (click)="OpenMemberData(Memberdata,item)">ข้อมูล</button></td> 
+                    <td class="text-center"> <button type="button" class="ml-2 btn btn-danger btn-sm button1" (click)="Delete(item)">ลบ</button></td>
+
+  
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+
+  <ng-template #MemberModal let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title2">เพิ่มสมาชิก</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="Member">
+            
+          <div class="row">
+            <div class="col-md-6 pr-1">
+              <div class="form-group">
+                <label>ชื่อ</label>
+                <input type="text"  formControlName="FirstName"  class="form-control"  placeholder="ชื่อ"   >
+              </div>
+            </div>
+            <div class="col-md-6 pl-1">
+              <div class="form-group">
+                <label>นามสกุล</label>
+                <input type="text" formControlName="LastName"  class="form-control" placeholder="นามสกุล" >
+              </div>
+            </div>
+          </div>
+               
+          <div class="row">
+            <div class="col-md-6 pr-1">
+              <div class="form-group">
+                <label>Username</label>
+                <input type="text"  formControlName="Username"  class="form-control"  placeholder="Username"   >
+              </div>
+            </div>
+            <div class="col-md-6 pl-1">
+              <div class="form-group">
+                <label>Password</label>
+                <input type="password" formControlName="Password"  class="form-control" placeholder="Password" >
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6 pr-1">
+              <div class="form-group">
+                <label>รหัสพนักงาน</label>
+                <input type="text"  formControlName="Code"  class="form-control"  placeholder="รหัสพนักงาน"   >
+              </div>
+            </div>
+            <div class="col-md-6 pl-1">
+              <div class="form-group">
+                <label>ตำแหน่ง</label>
+                <select class="custom-select"  formControlName="Statusmember">
+                    <option disabled [value]="null">เลือกตำแหน่ง</option>
+                    <option value="doctor">หมอ</option>
+                    <option value="reception">พนักงาน</option>
+                    
+                  </select>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label>ข้อมูลเพิ่มเติม</label>
+                <textarea   formControlName="Note"  class="form-control textarea"></textarea>
+                
+            </div>
+            </div>
+          </div>
+        </form>
+      
+  
+      </div>
+  
+      <div class="modal-footer">
+        
+        <button [disabled]="Member.invalid" type="submit" class="btn btn-success" (click)="Insert();"  (click)="modal.close('Save click'); onSaveEdit();">บันทึก</button>
+        
+      </div>
+
+  </ng-template>
+
+  <ng-template #Memberdata let-modal>
+   
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title3">เพิ่มสมาชิก</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form [formGroup]="Member">
+          
+        <div class="row">
+          <div class="col-md-6 pr-1">
+            <div class="form-group">
+              <label>ชื่อ</label>
+              <input type="text"  formControlName="FirstName"  class="form-control"  placeholder="ชื่อ"   >
+            </div>
+          </div>
+          <div class="col-md-6 pl-1">
+            <div class="form-group">
+              <label>นามสกุล</label>
+              <input type="text" formControlName="LastName"  class="form-control" placeholder="นามสกุล" >
+            </div>
+          </div>
+        </div>
+             
+        <div class="row">
+          <div class="col-md-6 pr-1">
+            <div class="form-group">
+              <label>Username</label>
+              <input type="text"  formControlName="Username"  class="form-control"  placeholder="Username"   >
+            </div>
+          </div>
+          <div class="col-md-6 pl-1">
+            <div class="form-group">
+              <label>Password</label>
+              <input type="password" formControlName="Password"  class="form-control" placeholder="Password" >
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6 pr-1">
+            <div class="form-group">
+              <label>รหัสพนักงาน</label>
+              <input type="text"  formControlName="Code"  class="form-control"  placeholder="รหัสพนักงาน"   >
+            </div>
+          </div>
+          <div class="col-md-6 pl-1">
+            <div class="form-group">
+              <label>ตำแหน่ง</label>
+              <select class="custom-select"  formControlName="Statusmember">
+                  <option disabled [value]="null">เลือกตำแหน่ง</option>
+                  <option value="doctor">หมอ</option>
+                  <option value="reception">พนักงาน</option>
+                  
+                </select>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label>ข้อมูลเพิ่มเติม</label>
+              <textarea   formControlName="Note"  class="form-control textarea"></textarea>
+              
+          </div>
+          </div>
+        </div>
+      </form>
+    
+
+    </div>
+
+    <div class="modal-footer">
+      
+      <button [disabled]="Member.invalid" type="submit" class="btn btn-success"(click)="Update();" (click)="modal.close('Save click'); ">บันทึก</button>
+      
+    </div>
+
+    
+  </ng-template>
+  
