@@ -20,6 +20,7 @@ export class UserComponent implements OnInit {
     LastName: new FormControl(null, Validators.required),
     Gender: new FormControl(null, Validators.required),
     Phonenumber: new FormControl(null, Validators.required),
+    Pastsportid: new FormControl(null, Validators.required),
     Address: new FormControl(null, Validators.required),
     Birthday: new FormControl(null, Validators.required),
     Disease: new FormControl(null, Validators.required),
@@ -27,8 +28,6 @@ export class UserComponent implements OnInit {
     Age: new FormControl(null),
     Annotation: new FormControl(null),
   });
-
-  
 
   // ? Variable API
   all: any;
@@ -58,6 +57,7 @@ export class UserComponent implements OnInit {
   ngOnInit() {
     this.GetApi();
     this.test();
+    this.Getfile();
   }
 
   test() {
@@ -72,7 +72,7 @@ export class UserComponent implements OnInit {
       age;
     if (this.Birthday.value) {
       // * get datenow
-      let datenow = new Date(); 
+      let datenow = new Date();
 
       // * get yearNow
       let yearNow = datenow.getFullYear();
@@ -85,7 +85,7 @@ export class UserComponent implements OnInit {
       age = yearNowNum - birthdayNow;
 
       console.log(age);
-      this.Age.setValue(age)
+      this.Age.setValue(age);
     }
   }
 
@@ -98,6 +98,7 @@ export class UserComponent implements OnInit {
       gender: this.Gender.value,
       birthday: this.Birthday.value, ///ตัวแปร this.
       address: this.Address.value,
+      pastsportid: this.Pastsportid.value,
       disease: this.Disease.value,
       drugAllergy: this.DrugAllergy.value,
       phonenumber: this.Phonenumber.value,
@@ -120,6 +121,7 @@ export class UserComponent implements OnInit {
       gender: this.Gender.value,
       birthday: this.Birthday.value,
       address: this.Address.value,
+      pastsportid: this.Pastsportid.value,
       disease: this.Disease.value,
       drugAllergy: this.DrugAllergy.value,
       phonenumber: this.Phonenumber.value,
@@ -134,6 +136,41 @@ export class UserComponent implements OnInit {
     });
   }
 
+  Getfile() {
+    fetch("../../../assets/SIAM-ID/Data.txt")
+      .then((response) => response.text())
+      .then((data) => {
+        console.log(data);
+        const resultSplit: any = data.split("\r\n");
+        const users = resultSplit.filter((person: any) => person != "");
+        const lastUserScan: any = users[users.length - 1];
+        const lastUserScanSplit = lastUserScan.split(",");
+        console.log(lastUserScanSplit);
+        this.User.patchValue({
+          FirstName: lastUserScanSplit[0],
+          LastName: lastUserScanSplit[1],
+          Gender: lastUserScanSplit[2],
+          Birthday: this.setFormatBirthDay(lastUserScanSplit[3]),
+          Age: lastUserScanSplit[4].substring(0, 2),
+          Address: lastUserScanSplit[5],
+          Pastsportid: lastUserScanSplit[6],
+        });
+      });
+  }
+
+  setFormatBirthDay(bdDate: any) {
+    const newDate: any = new Date(bdDate);
+
+    const year = newDate.getFullYear();
+    let mm: any = (newDate.getMonth() + 1).toString();
+    let day: any = (newDate.getDate()).toString();
+    if (day.length === 1) day = "0" + day;
+    if (mm.length === 1) mm = "0" + mm;
+    console.log(`${year}-${mm}-${day}`);
+    
+    return `${year}-${mm}-${day}`;
+  }
+
   Update() {
     let data1 = {
       firstname: this.FirstName.value,
@@ -141,6 +178,7 @@ export class UserComponent implements OnInit {
       gender: this.Gender.value,
       birthday: this.Birthday.value,
       address: this.Address.value,
+      pastsportid: this.Pastsportid.value,
       disease: this.Disease.value,
       drugAllergy: this.DrugAllergy.value,
       phonenumber: this.Phonenumber.value,
@@ -166,25 +204,38 @@ export class UserComponent implements OnInit {
     this.id = item._id;
   }
 
- 
-
-
   ///? SetForm
-  get Age(){ return this.User.get('Age')} 
-  get FirstName(){ return this.User.get('FirstName')} 
-  get LastName(){ return this.User.get('LastName')} 
-  get Gender(){ return this.User.get('Gender')} 
-  get Phonenumber(){ return this.User.get('Phonenumber')} 
-  get Address(){ return this.User.get('Address')} 
-  get Birthday(){ return this.User.get('Birthday')} 
-  get Disease(){ return this.User.get('Disease')} 
-  get DrugAllergy(){ return this.User.get('DrugAllergy')} 
-  get Annotation(){ return this.User.get('Annotation')} 
-  
-
-
- 
-
+  get Age() {
+    return this.User.get("Age");
+  }
+  get FirstName() {
+    return this.User.get("FirstName");
+  }
+  get LastName() {
+    return this.User.get("LastName");
+  }
+  get Gender() {
+    return this.User.get("Gender");
+  }
+  get Phonenumber() {
+    return this.User.get("Phonenumber");
+  }
+  get Pastsportid() {
+    return this.User.get("Pastsportid");
+  }
+  get Address() {
+    return this.User.get("Address");
+  }
+  get Birthday() {
+    return this.User.get("Birthday");
+  }
+  get Disease() {
+    return this.User.get("Disease");
+  }
+  get DrugAllergy() {
+    return this.User.get("DrugAllergy");
+  }
+  get Annotation() {
+    return this.User.get("Annotation");
+  }
 }
-
-

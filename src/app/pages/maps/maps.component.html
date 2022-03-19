@@ -1,13 +1,79 @@
-
 <div class="row">
   <div class="col-md-12">
-    <div class="card ">
-      <div class="card-header ">
-        Google Maps
+    <div class="card">
+      <div class="card-header">
+        นัดคิวคนไข้
+        <h5 class="card-title" *ngIf="NameControl &&meetdatedata ">
+          {{ NameControl.firstname.value }} {{ NameControl.lastname.value }} {{meetdatedata[0].namedoctor }} {{meetdatedata[0].meetdateperson[6] }} 
+        </h5>
       </div>
-      <div class="card-body ">
-        <div id="map" class="map"></div>
-      </div>
+      <form [formGroup]="Name">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-4 mx-auto">
+              <div class="form-group">
+                <label>นัดวัน</label>
+                <input
+                  type="datetime-local"
+                  formControlName="meetdateperson"
+                  class="form-control"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4 mx-auto">
+              <div class="form-group">
+                <label>เลือกหมอ:</label>
+                <select formControlName="namedoctor" name="cars" id="cars">
+                  <option
+                    [value]="item.firstname"
+                    *ngFor="let item of doctorall; let i = index"
+                  >
+                    {{ item.firstname }}
+                  </option>
+                  <!-- <option value=""></option> -->
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="update ml-auto mr-auto">
+              <button
+                (click)="Insert()"
+                type="submit"
+                class="btn btn-primary btn-round"
+              >
+                ยืนยัน
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
     </div>
+  </div>
+</div>
+
+<div class="row box-body">
+  <div class="col-lg-4 box-day" *ngFor="let item of Schedules; let i = index;">
+    <table>
+      <tr>
+        <td>{{ item.date | date:'short'}}</td>
+      </tr>
+      <tr *ngFor="let data of item.data;">
+        <td >
+          {{data.firstname}} 
+        </td>
+        <td >
+          {{data.meetdateperson |date:'short'}} 
+        </td>
+        <td >
+          {{data.namedoctor}} 
+        </td>
+        
+      </tr>
+
+    </table>
   </div>
 </div>

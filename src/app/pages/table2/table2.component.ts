@@ -26,6 +26,7 @@ export class Table2Component implements OnInit {
     LastName: new FormControl(null, Validators.required),
     Gender: new FormControl(null, Validators.required),
     Phonenumber: new FormControl(null, Validators.required),
+    Pastsportid: new FormControl(null, Validators.required),
     Address: new FormControl(null, Validators.required),
     Birthday: new FormControl(null, Validators.required),
     Disease: new FormControl(null, Validators.required),
@@ -79,6 +80,13 @@ export class Table2Component implements OnInit {
     sessionStorage.setItem("CaseId", item._id);
     location.href = "/#/upgrade";
   }
+  Link3(item: any) {
+    console.log("item", item);
+    sessionStorage.setItem("FirstName", item.firstname);
+    sessionStorage.setItem("LastName", item.lastname);
+    sessionStorage.setItem("CaseId", item._id);
+    location.href = "/#/maps";
+  }
 
   open(content, item) {
     let bd0 = [],
@@ -104,6 +112,7 @@ export class Table2Component implements OnInit {
       LastName: item.lastname || null,
       Gender: item.gender || null,
       Phonenumber: item.phonenumber || null,
+      Pastsportid: item.pastsportid || null,
       Address: item.address || null,
       Birthday: bd0[0] || null,
       Disease: item.disease || null,
@@ -136,6 +145,7 @@ export class Table2Component implements OnInit {
         lastname: this.LastName.value,
         gender: this.Gender.value,
         birthday: this.Birthday.value,
+        pastsportid: this.Pastsportid.value,
         address: this.Address.value,
         disease: this.Disease.value,
         drugAllergy: this.DrugAllergy.value,
@@ -260,6 +270,9 @@ export class Table2Component implements OnInit {
   }
   get Phonenumber() {
     return this.User.get("Phonenumber");
+  }
+  get Pastsportid() {
+    return this.User.get("Pastsportid");
   }
   get Address() {
     return this.User.get("Address");

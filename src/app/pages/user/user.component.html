@@ -6,87 +6,156 @@
       </div>
       <div class="card-body">
         <form [formGroup]="User">
-        
           <div class="row">
-            <div class="col-md-6 pr-1">
+            <div class="col-md-6">
               <div class="form-group">
                 <label>ชื่อ</label>
-                <input type="text" formControlName="FirstName" class="form-control"  placeholder="ชื่อ" value=""  >
+                <input
+                  type="text"
+                  formControlName="FirstName"
+                  class="form-control"
+                  placeholder="ชื่อ"
+                  value=""
+                />
               </div>
             </div>
-            <div class="col-md-6 pl-1">
+
+            <div class="col-md-6">
               <div class="form-group">
                 <label>นามสกุล</label>
-                <input type="text" formControlName="LastName" class="form-control" placeholder="นามสกุล" value="">
+                <input
+                  type="text"
+                  formControlName="LastName"
+                  class="form-control"
+                  placeholder="นามสกุล"
+                  value=""
+                />
               </div>
             </div>
-          </div>
-          <div class="row">
-            <div class="col-md-6 pr-1">
+
+            <div class="col-md-6">
               <div class="form-group">
                 <label>เพศ</label>
-                <input type="text" formControlName="Gender" class="form-control"  placeholder="เพศ" value=""  >
+                <input
+                  type="text"
+                  formControlName="Gender"
+                  class="form-control"
+                  placeholder="เพศ"
+                  value=""
+                />
               </div>
             </div>
-            <div class="col-md-6 pl-1">
+
+     
+
+            <div class="col-md-6">
               <div class="form-group">
-                <label>เบอร์โทร</label>
-                <input type="text" formControlName="Phonenumber" class="form-control" placeholder="เบอร์โทร" value="">
+                <label>เลขบัตประชาชน</label>
+                <input
+                  type="text"
+                  formControlName="Pastsportid"
+                  class="form-control"
+                  placeholder="เลขบัตรประชาชน"
+                  value=""
+                />
               </div>
             </div>
-          </div>
-          <div class="row">
+
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>วันเกิด</label>
+                <input
+                  type="date"
+                  formControlName="Birthday"
+                  class="form-control"
+                  value=""
+                />
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>อายุ</label>
+                <input
+                  type="text"
+                  formControlName="Age"
+                  class="form-control"
+                  value=""
+                />
+              </div>
+            </div>
+
             <div class="col-md-12">
               <div class="form-group">
                 <label>ที่อยู่</label>
-                <input type="text" formControlName="Address" class="form-control" placeholder="ที่อยู่" value="">
+                <input
+                  type="text"
+                  formControlName="Address"
+                  class="form-control"
+                  placeholder="ที่อยู่"
+                  value=""
+                />
               </div>
             </div>
-          </div>
 
-          <div class="row">
-            <div class="col-md-6 pr-1">
-              <div class="form-group">
-                <label>วันเกิด</label>
-                <input (change)="Agedateday()" type="date" formControlName="Birthday" class="form-control"  value="">
-              </div>
-            </div>
-            <div class="col-md-6 pl-1">
-              <div class="form-group">
-                <label>อายุ</label>
-                <input type="text" disabled  formControlName="Age" class="form-control"  value="">
-              </div>
-            </div>
-          </div>
+            
 
-          <div class="row">
-            
-            
-            <div class="col-md-6 pr-1">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label>เบอร์โทร</label>
+                <input
+                  type="text"
+                  formControlName="Phonenumber"
+                  class="form-control"
+                  placeholder="เบอร์โทร"
+                  value=""
+                />
+              </div>
+            </div>
+
+            <div class="col-md-6">
               <div class="form-group">
                 <label>โรคประจำตัว</label>
-                <input type="text" formControlName="Disease" class="form-control" placeholder="โรคประจำตัว" value="">
+                <input
+                  type="text"
+                  formControlName="Disease"
+                  class="form-control"
+                  placeholder="โรคประจำตัว"
+                  value=""
+                />
               </div>
             </div>
-            <div class="col-md-6 pl-1">
+            <div class="col-md-6">
               <div class="form-group">
                 <label>แพ้ยา</label>
-                <input type="text" formControlName="DrugAllergy" class="form-control" placeholder="แพ้ยา " value="">
+                <input
+                  type="text"
+                  formControlName="DrugAllergy"
+                  class="form-control"
+                  placeholder="แพ้ยา "
+                  value=""
+                />
               </div>
             </div>
-          </div>
-         
-          <div class="row">
+
             <div class="col-md-12">
               <div class="form-group">
                 <label>ข้อมูลเพิ่มเติม</label>
-                <textarea formControlName="Annotation"  class="form-control textarea"></textarea>
+                <textarea
+                  formControlName="Annotation"
+                  class="form-control textarea"
+                ></textarea>
               </div>
             </div>
-          </div>
-          <div class="row">
+
             <div class="update ml-auto mr-auto">
-              <button [disabled]="User.invalid" (click)="Insert();" type="submit" class="btn btn-primary btn-round">ยืนยัน</button>
+              <button
+                [disabled]="User.invalid"
+                (click)="Insert()"
+                type="submit"
+                class="btn btn-primary btn-round"
+              >
+                ยืนยัน
+              </button>
             </div>
           </div>
         </form>
@@ -94,7 +163,6 @@
     </div>
   </div>
 </div>
-
 <!-- <div class="">
   <table class="table">
     <thead>

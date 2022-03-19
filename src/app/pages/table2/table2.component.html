@@ -24,13 +24,15 @@
                   จัดการข้อมูล
                 </th>
                 <th class="text-center">
+                  นัดคิว
+                </th>
+                <th class="text-center">
                   ลบข้อมูล
                 </th>
                 
               </thead>
               <tbody>
-                <tr *ngFor="let item of dataShow ;let i=index;" class="table-row1">
-                  
+                <tr *ngFor="let item of dataShow ;let i=index;" class="table-row1">       
                     <td class="text-center">{{i+1}}</td>
                     <td class="text-center">{{item.firstname}}</td>
                     <td class="text-center">{{item.lastname}}</td>
@@ -39,9 +41,9 @@
                       <button class="ml-2 btn  btn-sm button3" (click)="Link1(item);">รักษา</button>
                       <button class="ml-2 btn btn-light btn-sm button4" (click)="Link2(item);">ประวัติการรักษา</button>
                     </td>
+                    <td class="text-center"> <button class="btn  btn-sm button2"(click)="Link3(item);" >นัดคิวคนไข้</button></td>
                     <td class="text-center"> <i class="bi bi-trash bin"(click)="Delete(item);" ></i></td>
 
-  
                 </tr>
               
               </tbody>
@@ -89,6 +91,14 @@
             <div class="form-group">
               <label>เบอร์โทร</label>
               <input type="text" disabled  formControlName="Phonenumber" class="form-control" placeholder="เบอร์โทร" value="">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label>เลขบัตรประชาชน</label>
+              <input type="text" disabled  formControlName="Pastsportid" class="form-control" placeholder="เลขบัตรประชาชน" value="">
             </div>
           </div>
         </div>

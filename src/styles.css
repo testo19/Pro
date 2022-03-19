@@ -1,3 +1,37 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~bootstrap-icons/font/bootstrap-icons';
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css");
+
+.box-body{
+    box-shadow: 2px 2px 8px 4px rgba(0, 0, 0, 0.36);
+}
+.box-day{
+    height: 100px;
+    border: 1px solid black;
+}
+
+.color-Mon{
+    background-color: yellow;
+}
+.color-Tue{
+    background-color: rgb(255, 0, 191);
+}
+.color-Wed{
+    background-color: green;
+}
+.color-Thu{
+    background-color: orange;
+    
+}
+.color-Fri{
+    background-color: skyblue;
+    
+}
+.color-Sat{
+    background-color: purple;
+    
+}
+.color-Sun{
+    background-color: red;
+    
+}

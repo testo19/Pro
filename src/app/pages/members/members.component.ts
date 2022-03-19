@@ -17,8 +17,6 @@ export class MembersComponent implements OnInit {
   constructor(private api: ApiService, private modalService: NgbModal) {}
   closeResult = "";
 
-  test:any
-
   Table = new FormGroup({
     FirstName: new FormControl(null, Validators.required),
     LastName: new FormControl(null, Validators.required),

@@ -1,23 +1,29 @@
-<div class="row">
-    <div class="col-lg-8 mx-auto" >
-        <div class="card">
+<div class="row ">
+    <div class="col-md-3 mx-auto " >
+        <div class="card ">
             <div class="card-header">
-                <h5 class="card-title">LOGIN</h5>
+                <h5 class="card-title text-center">Login</h5>
             </div>
+            
             <div class="card-body">
                 <form [formGroup]="MemberUsername">
                 <div class="row">
+                    <div class="col-md-8 mx-auto">
                     <label > Username</label>
                     <input formControlName="Username" class="from-control" type="text" >
                 </div>
+            </div>
                 <div class="row">
+                    <div class="col-md-8 mx-auto">
                     <label > Password</label>
                     <input formControlName="Password" class="from-control" type="password" >
                 </div>
-                <div class="row">
-                    <button (click)="Login()">LOGIN</button>
+            </div>
+                <div class="card-footer ">
+                    <div class = "text-center">
+                    <button class ="btn btn-primary" (click)="Login()">Submit</button>
                 </div>
-                
+            </div>
 
             </form>
             </div>

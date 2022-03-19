@@ -20,6 +20,14 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
 import { DatepickerComponent } from './pages/datepicker/datepicker.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { LoginComponent } from "./pages/login/login.component";
+import { FullCalendarModule } from '@fullcalendar/angular'; // must go before plugins
+import dayGridPlugin from '@fullcalendar/daygrid'; // a plugin!
+import interactionPlugin from '@fullcalendar/interaction'; // a plugin!
+
+FullCalendarModule.registerPlugins([ // register FullCalendar plugins
+  dayGridPlugin,
+  interactionPlugin
+]);
 
 
 
@@ -45,7 +53,8 @@ import { LoginComponent } from "./pages/login/login.component";
     FormsModule,
     ReactiveFormsModule,
     BrowserModule,
-    NgbModule
+    NgbModule,
+    FullCalendarModule 
   ],
   providers: [],
   bootstrap: [AppComponent]
