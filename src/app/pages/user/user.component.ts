@@ -37,34 +37,18 @@ export class UserComponent implements OnInit {
   Category: any;
   Price: any;
   id: any;
+  no:any
+  
   // // ? Variable patient
-  // firstname: any;
-  // lastname: any;
-  // gender: any;
-  // birthday: any;
-  // address: any;
-  // disease: any;
-  // drugAllergy: any;
-  // phonenumber: any;
-  // annotation: any;
-
-  // // ! Form Control
-  // FormUser = new FormGroup({
-  //     FirstName: new FormControl(null,Validators.required),
-  //     LastName: new FormControl(null,Validators.required),
-  // })
+  
 
   ngOnInit() {
     this.GetApi();
-    this.test();
+    
     this.Getfile();
   }
 
-  test() {
-    this.api.GetPatients().subscribe((data: any) => {
-      console.log(data);
-    });
-  }
+  
 
   // ?Age
   Agedateday() {
@@ -107,15 +91,54 @@ export class UserComponent implements OnInit {
     };
 
     this.api.GetPatients().subscribe((response: any) => {
-      if (response.length > 0) {
+      
         this.all = response;
         console.log(response);
-      }
+
+        if(this.all.length > 0){
+    
+          let lastNH = this.all.pop();
+          
+          
+          let NH = lastNH.no
+
+          const word = NH.split('-');
+          
+          const Numberword = Number(word[1]) 
+         let NewNumber = Numberword + 1
+          let NewNumberNH = "NH-" + NewNumber
+      
+          this.no = NewNumberNH
+          
+          
+         
+          
+
+        }else{ 
+          this.no = "NH-1"
+          console.log(this.no);
+          
+
+
+
+        
+
+
+
+      
+      
+      
+        }
+     
     });
+
+
+  
   }
 
   Insert() {
     let data1 = {
+      no: this.no,
       firstname: this.FirstName.value,
       lastname: this.LastName.value,
       gender: this.Gender.value,
@@ -194,6 +217,7 @@ export class UserComponent implements OnInit {
       }
     });
   }
+ 
 
   // * Event
   TestEdit(item: any) {

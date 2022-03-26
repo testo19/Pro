@@ -53,6 +53,7 @@ export class Table2Component implements OnInit {
 
   GetApi() {
     let data1 = {
+      
       firstname: this.Table.value.FirstName,
       lastname: this.Table.value.LastName,
     };
@@ -202,6 +203,7 @@ export class Table2Component implements OnInit {
       const data = this.all.filter((name) =>
         name.firstname.includes(this.inputFilter.value)
         ||name.lastname.includes(this.inputFilter.value)
+        ||name.no.includes(this.inputFilter.value)
         
       );
       this.dataShow = data; //เป็นค่าที่เรากรอง ผลลัพ
