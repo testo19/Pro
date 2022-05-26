@@ -4,7 +4,8 @@
       <div class="card-header">
         นัดคิวคนไข้
         <h5 class="card-title" *ngIf="NameControl &&meetdatedata ">
-          {{ NameControl.firstname.value }} {{ NameControl.lastname.value }} {{meetdatedata[0].namedoctor }} {{meetdatedata[0].meetdateperson[6] }} 
+          {{ NameControl.firstname.value }} {{ NameControl.lastname.value }} 
+          <!-- {{meetdatedata[0].namedoctor }} {{meetdatedata[0].meetdateperson[6] }}  -->
         </h5>
       </div>
       <form [formGroup]="Name">
@@ -27,10 +28,11 @@
                 <label>เลือกหมอ:</label>
                 <select formControlName="namedoctor" name="cars" id="cars">
                   <option
-                    [value]="item.firstname"
+                    [value]="item.firstname + item.lastname" 
+
                     *ngFor="let item of doctorall; let i = index"
                   >
-                    {{ item.firstname }}
+                    {{ item.firstname }} {{item.lastname}}
                   </option>
                   <!-- <option value=""></option> -->
                 </select>

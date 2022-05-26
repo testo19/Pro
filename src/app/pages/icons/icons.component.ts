@@ -435,7 +435,7 @@ export class IconsComponent {
     
   }
   onClickListTunTaHappy(code: any) {
-    const head = "ทันตะสุขา";
+    const head = "ทันตสุขศึกษา";
     this.ListAll[code] = {
       head: head,
       code: code,
